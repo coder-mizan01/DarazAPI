@@ -6,8 +6,8 @@ const {CreateCategoryController,UpdateCategoryController,Categories,SingleCatego
  const router = express.Router();
 
 
- router.post('/create-category',isLoggedIn, isAdmin,CreateCategoryController);
- router.put('/update-category/:id',isLoggedIn,isAdmin,UpdateCategoryController);
+ router.post('/create-category',CreateCategoryController);
+ router.put('/update-category/:id',UpdateCategoryController);
  router.get('/categories',Categories);
  router.get('/single-category/:slug',SingleCategory);
  router.delete('/delete-category/:id',isLoggedIn,isAdmin,DeleteCategory)

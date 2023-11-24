@@ -21,7 +21,7 @@ router.post("/create-product",isLoggedIn,isAdmin,upload.single('photo'), createP
 router.get("/get-product", getProductController);
 router.get("/get-product/:slug", getSingleProductController);
 router.get("/product-photo/:id", productPhotoController);
-router.put("/update-product/:id",isLoggedIn, isAdmin, updateProductController);
+router.put("/update-product/:id", updateProductController);
 router.delete("/delete-product/:id", deleteProductController);
 
 module.exports = router;

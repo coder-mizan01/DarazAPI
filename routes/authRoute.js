@@ -3,12 +3,14 @@ const {isLoggedIn,isAdmin} = require('../middlewares/authMiddleware');
 const router = express.Router();
 
 
-const {registerController,loginController,testController,userRoute,adminRoute} = require('../controllers/authController');
+const {registerController,loginController,testController,userRoute,adminRoute, getAllUser} = require('../controllers/authController');
 
 
 router.post('/register',registerController)
 
 router.post('/login',loginController);
+
+router.get('/all-user',getAllUser)
 
 router.get('/userdashboard',isLoggedIn,userRoute);
 
