@@ -1,8 +1,13 @@
  
-const express = require('express');
-const { isAdmin, isLoggedIn } = require('../middlewares/authMiddleware');
-const {CreateCategoryController,UpdateCategoryController,Categories,SingleCategory,DeleteCategory} = require('../controllers/CategoryController')
-
+import express from 'express';
+import { isAdmin, isLoggedIn } from '../middlewares/authMiddleware.js';
+import {
+  CreateCategoryController,
+  UpdateCategoryController,
+  Categories,
+  SingleCategory,
+  DeleteCategory
+} from '../controllers/CategoryController.js';
  const router = express.Router();
 
 
@@ -13,4 +18,4 @@ const {CreateCategoryController,UpdateCategoryController,Categories,SingleCatego
  router.delete('/delete-category/:id',isLoggedIn,isAdmin,DeleteCategory)
 
 
-module.exports = router;
+ export default router;

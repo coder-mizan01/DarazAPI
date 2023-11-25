@@ -1,7 +1,9 @@
 
-const productModel = require("../models/productModel");
-const slugify = require("slugify");
-const fs = require("fs");
+import productModel from "../models/productModel.js";
+import slugify from "slugify";
+import fs from "fs"
+
+/*const fs = require("fs");*/
 
 
 const createProductController = async (req, res) => {
@@ -144,7 +146,7 @@ const updateProductController =  async(req,res)=>{
 
 
 
-module.exports = {
+export {
   createProductController,
   getProductController,
   getSingleProductController,

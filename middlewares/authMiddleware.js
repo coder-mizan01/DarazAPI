@@ -1,6 +1,8 @@
-require('dotenv').config();
-const jwt = require('jsonwebtoken');
-const User = require('../models/userModel');
+import dotenv from 'dotenv';
+dotenv.config();
+import jwt from 'jsonwebtoken';
+import User from '../models/userModel.js';
+
 
 const isLoggedIn = (req,res,next) =>{
     try {
@@ -34,4 +36,4 @@ const isAdmin = async (req,res,next) =>{
   }
 }
 
-module.exports = {isLoggedIn,isAdmin};
+export{isLoggedIn,isAdmin};

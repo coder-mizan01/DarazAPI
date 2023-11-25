@@ -1,21 +1,21 @@
-const express = require("express");
-const multer = require('multer');
+import express from 'express';
+import multer from 'multer';
 const router = express.Router();
-//Multer Configeration
+
+// Multer Configuration
 const storage = multer.memoryStorage();
-const upload = multer({storage});
+const upload = multer({ storage });
 
-
-const {
+import {
   createProductController,
   getProductController,
   getSingleProductController,
   deleteProductController,
   productPhotoController,
   updateProductController,
-} = require("../controllers/productController");
+} from '../controllers/productController.js';
 
-const { isLoggedIn, isAdmin } = require("../middlewares/authMiddleware");
+import { isLoggedIn, isAdmin } from '../middlewares/authMiddleware.js';
 
 router.post("/create-product",isLoggedIn,isAdmin,upload.single('photo'), createProductController);
 router.get("/get-product", getProductController);
@@ -24,4 +24,4 @@ router.get("/product-photo/:id", productPhotoController);
 router.put("/update-product/:id", updateProductController);
 router.delete("/delete-product/:id", deleteProductController);
 
-module.exports = router;
+export default router

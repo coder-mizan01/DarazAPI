@@ -1,5 +1,5 @@
-const slugify = require("slugify");
-const categoryModel = require("../models/categoryModel");
+import slugify from "slugify";
+import categoryModel from "../models/categoryModel.js";
 
 const CreateCategoryController = async (req, res) => {  
   try {
@@ -112,7 +112,7 @@ const DeleteCategory = async(req,res) =>{
 }
 }
 
-module.exports = {
+export  {
   CreateCategoryController,
   UpdateCategoryController,
   Categories,

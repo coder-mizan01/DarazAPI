@@ -1,13 +1,17 @@
-require('dotenv').config();
-const express = require('express');
-const connectDB = require('./config/db');
+import dotenv from "dotenv"
+dotenv.config();
+import express from "express";
+import connectDB  from './config/db.js';
 const connecTed = async() =>{
     await connectDB();
 } 
-const authRoutes = require('./routes/authRoute');
-const categoryRoutes = require('./routes/categoryRoute');
-const productRoute = require('./routes/productRoute');
-const cors = require('cors');
+import authRoutes from './routes/authRoute.js';
+import categoryRoutes from './routes/categoryRoute.js';
+import productRoute from './routes/productRoute.js';
+import cors from 'cors';
+
+// Rest of your code
+
 
 
 const app = express();
