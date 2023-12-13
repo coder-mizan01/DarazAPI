@@ -8,15 +8,12 @@ const connecTed = async() =>{
 import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoute.js';
 import productRoute from './routes/productRoute.js';
+import orderRoute from './routes/orderRoute.js'
 import cors from 'cors';
-
-// Rest of your code
 
 
 
 const app = express();
-
-
 
 //middleware
 app.use(express.json());
@@ -25,13 +22,13 @@ app.use(cors());
 //app.use(morgan());
 
 //routes
-app.use("/api/v1/auth", authRoutes);
-app.use("/api/v1/category",categoryRoutes);
-app.use("/api/v1/product",productRoute);
+app.use("/api/auth", authRoutes);
+app.use("/api/category",categoryRoutes);
+app.use("/api/product",productRoute);
+app.use("/api/orders",orderRoute)
 
 
-
-// Define a route
+// Define home route
 app.get('/', (req, res) => {
   res.setHeader("Access-Control-Allow-Credentials","true")
   res.send('Hello, world!');

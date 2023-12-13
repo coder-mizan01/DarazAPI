@@ -36,7 +36,7 @@ const registerController = async (req, res) => {
 
 
   } catch (error) {
-    res.status(200).send({
+    res.status(500).send({
       success: false,
       message: 'error in registerController',
       error,
