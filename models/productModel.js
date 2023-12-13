@@ -78,6 +78,12 @@ const productSchema = new mongoose.Schema(
       },
 required : true,
     },
+
+    model :{
+      type : String,
+      unique : true,
+    }
+    
   },
   { timestamps: true }
 );

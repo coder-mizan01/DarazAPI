@@ -46,7 +46,26 @@ const getAllOrderController = async (req,res)=>{
     }
 } 
 
+
+const getSingleOrderByNumber = async (req,res) => {
+    try {
+        const singleOrder = await Order.findOne({number:req.params.number});
+        res.status(201).send({
+            success : true,
+            message : 'single order by number',
+            singleOrder
+
+        })
+    } catch (error) {
+        res.status(500).send({
+            success : false,
+            message : "Error in getSingleOrderByNumber"
+        })
+    }
+}
+
 export {
     placeOrderController,
-    getAllOrderController
+    getAllOrderController,
+    getSingleOrderByNumber
 } 

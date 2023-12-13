@@ -8,13 +8,13 @@ import fs from "fs"
 
 const createProductController = async (req, res) => {
   try {
-    const { title, description, price, category,subcategory, quantity ,brand } = req.body;
+    const { title, description, price, category,subcategory, quantity ,brand , model } = req.body;
 
     // ... Your validation code
 
     const slug = slugify(title);
 
-    const product = new productModel({ title, description, price, category, subcategory, quantity,brand,slug  });
+    const product = new productModel({ title, description, price, category, subcategory, quantity,brand,slug ,model });
 
     if (req.file) {
       product.photo.data = req.file.buffer;
@@ -109,7 +109,7 @@ const productPhotoController = async(req,res)=>{
 
 const updateProductController =  async(req,res)=>{
   try {
-    const { title, description, price, category, subcategory,brand, shipping, quantity } =
+    const { title, description, price, category, subcategory,brand, shipping, quantity ,model} =
       req.body;
 
 
