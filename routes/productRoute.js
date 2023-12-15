@@ -17,7 +17,7 @@ import {
 
 import { isLoggedIn, isAdmin } from '../middlewares/authMiddleware.js';
 
-router.post("/create-product",isLoggedIn,isAdmin,upload.single('photo'), createProductController);
+router.post("/create-product",upload.single('photo'), createProductController);
 router.get("/get-product", getProductController);
 router.get("/get-product/:slug", getSingleProductController);
 router.get("/product-photo/:id", productPhotoController);
