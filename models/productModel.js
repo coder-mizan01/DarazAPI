@@ -10,10 +10,15 @@ const productSchema = new mongoose.Schema(
     slug: {
       type: String,
       required: true,
+      unique : true,
     },
-    description: {
+    specification_property: { 
       type: String,
       required: true,
+    },
+    specification_value: {
+      type : String,
+      required : true,
     },
     price: {
       type: Number,
@@ -29,7 +34,6 @@ const productSchema = new mongoose.Schema(
     },
     quantity: {
       type: Number,
-      required: true,
     },
     photo: {
       data: Buffer,
@@ -38,7 +42,6 @@ const productSchema = new mongoose.Schema(
     brand: {
       type: String,
     },
-
     model :{
       type : String,
     }

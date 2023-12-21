@@ -2,9 +2,11 @@ import dotenv from "dotenv"
 dotenv.config();
 import express from "express";
 import connectDB  from './config/db.js';
+
 const connecTed = async() =>{
     await connectDB();
 } 
+import productModel from "./models/productModel.js";
 import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoute.js';
 import productRoute from './routes/productRoute.js';
@@ -36,6 +38,7 @@ app.get('/', (req, res) => {
 
 
 const port = process.env.PORT || 5000;
+
 
 // Start the server
 app.listen(port, () => {
