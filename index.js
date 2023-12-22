@@ -6,11 +6,12 @@ import connectDB  from './config/db.js';
 const connecTed = async() =>{
     await connectDB();
 } 
-import productModel from "./models/productModel.js";
+
 import authRoutes from './routes/authRoute.js';
 import categoryRoutes from './routes/categoryRoute.js';
 import productRoute from './routes/productRoute.js';
 import orderRoute from './routes/orderRoute.js'
+import computer_item_route from "./routes/computer_item_route.js"
 import cors from 'cors';
 
 
@@ -28,6 +29,7 @@ app.use("/api/auth", authRoutes);
 app.use("/api/category",categoryRoutes);
 app.use("/api/product",productRoute);
 app.use("/api/orders",orderRoute)
+app.use("/api/product",computer_item_route)
 
 
 // Define home route

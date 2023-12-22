@@ -9,9 +9,7 @@ import fs from "fs"
 const createProductController = async (req, res) => {
   try {
     const { title,specification_property, specification_value, price, category,subcategory, quantity ,brand , model } = req.body;
-
-    // ... Your validation code
-
+    
     const slug = slugify(title);
 
     const product = new productModel({ title, specification_property, specification_value,price, category, subcategory, quantity,brand,slug ,model });
@@ -111,16 +109,6 @@ const updateProductController =  async(req,res)=>{
   try {
     const { title, specification_value, specification_property, price, category, subcategory,brand, shipping, quantity ,model} =
       req.body;
-
-
-    /* Check if title is present and is a string
-    if (typeof title !== 'string') {
-      return res.status(400).send({
-        success: false,
-        message: 'Invalid title',
-      });
-    }
-*/
     const slug = slugify(title);
 
     const products = await productModel.findByIdAndUpdate(req.params.id , 
