@@ -39,7 +39,7 @@ const createProductController = async (req, res) => {
 const getProductController = async(req,res)=>{
 
   try {
-    const products = await productModel.find(req.query).select('-photo').populate('category');
+    const products = await productModel.find(req.query).select('-photo')
     res.status(201).send({
       success : true,
       message : 'all products',

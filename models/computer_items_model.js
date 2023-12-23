@@ -48,5 +48,5 @@ const computer_item_schema = new mongoose.Schema({
       
 },{timestamps:true})
 
-const computer_item_model= mongoose.model('computer_items',computer_item_schema);
+const computer_item_model= mongoose.model('Computer_items',computer_item_schema);
 export default  computer_item_model;

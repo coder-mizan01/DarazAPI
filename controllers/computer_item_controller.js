@@ -38,11 +38,11 @@ const create_computer_item_controller = async (req,res) =>{
 
 const get_computer_item_controller = async (req,res) =>{
     try {
-        const computer_item = await productModel.find(req.query).select('-photo')
+        const computer_items = await computer_item_model.find(req.query).select('-photo')
         res.status(201).send({
           success : true,
           message : 'computer_items',
-          computer_item
+          computer_items
         })
     } catch (error) {
         res.status(500).send({
@@ -53,20 +53,20 @@ const get_computer_item_controller = async (req,res) =>{
 }
 
 
-const put_computer_item_controller = async (req,res) =>{
+const update_computer_item_controller = async (req,res) =>{
     try {
         const { title, specification_value, specification_property, price, category, subcategory,brand, shipping, quantity ,model} =
           req.body;
         const slug = slugify(title);
     
-        const products = await productModel.findByIdAndUpdate(req.params.id , 
+        const update_computer_item = await computer_item_model.findByIdAndUpdate(req.params.id , 
           {...req.body , slug},{new : true})
           await products.save();
     
         res.status(201).send({
           success : true,
           message : `${title} is updated`,
-          products
+          update_computer_item
         })
     
       } catch (error) {
@@ -80,11 +80,11 @@ const put_computer_item_controller = async (req,res) =>{
 
 const delete_computer_item_controller = async (req,res) =>{
 try {
-     const computer_item = await productModel.findByIdAndDelete({_id : req.params.id});
+     const delete_computer_item = await computer_item_model.findByIdAndDelete({_id : req.params.id});
      res.status(200).send({
       success : true,
-      message : "deleted product",
-      computer_item
+      message : `product is delete`,
+      delete_computer_item
      })
    } catch (error) {
     res.status(500).send({
@@ -98,7 +98,7 @@ try {
 const single_computer_item_controller = async(req,res)=>{
 
     try {
-      const single_computer_item = await productModel.findOne({slug : req.params.slug}).select('-photo')
+      const single_computer_item = await computer_item_model.findOne({slug : req.params.slug}).select('-photo')
       res.status(200).send({
        success : true,
        message : "single_computer_item",
@@ -116,7 +116,7 @@ const single_computer_item_controller = async(req,res)=>{
 
  const computer_item_photo_controller = async(req,res)=>{
     try {
-     const computer_item_photo= await productModel.findById(req.params.id).select('photo');
+     const computer_item_photo= await computer_item_model.findById(req.params.id).select('photo');
      if(product.photo.data){
       res.set('Content-type',computer_item_photo.photo.contentType);
       return res.status(200).send(computer_item_photo.photo.data);
@@ -134,7 +134,7 @@ const single_computer_item_controller = async(req,res)=>{
 export{
     create_computer_item_controller,
     get_computer_item_controller,
-    put_computer_item_controller,
+    update_computer_item_controller,
     delete_computer_item_controller,
     single_computer_item_controller,
     computer_item_photo_controller,

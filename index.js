@@ -28,8 +28,9 @@ app.use(cors());
 app.use("/api/auth", authRoutes);
 app.use("/api/category",categoryRoutes);
 app.use("/api/product",productRoute);
+app.use("/api/product",computer_item_route);
 app.use("/api/orders",orderRoute)
-app.use("/api/product",computer_item_route)
+
 
 
 // Define home route
