@@ -6,6 +6,9 @@ const orderSchema = new mongoose.Schema({
       type : Object,
       required : true,
    },
+   quantity :{
+     type : String,
+   },
    name : {
      type : String,
      required : true,
@@ -28,9 +31,14 @@ const orderSchema = new mongoose.Schema({
    details_address : {
     type : String,
     required : true,
-   }
+   },
+   total : {
+      type : String,
+      required : true
+   },
+
 },{timestamps:true}) 
 
-const Order = mongoose.model('order',orderSchema);
+const Order = mongoose.model('Order',orderSchema);
 
 export default Order;

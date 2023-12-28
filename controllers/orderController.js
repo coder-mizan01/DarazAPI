@@ -4,14 +4,14 @@ import Order from "../models/orderModel.js"
 
 const placeOrderController = async (req,res)=>{
     try {
-        const {cart,name,number,alternative_number,city,area,details_address} = req.body;
+        const {cart,quantity,name,number,alternative_number,city,area,details_address,total} = req.body;
 
-        if(!cart,!name && !number && !city && !area && !details_address){
+        if(!cart,!name && !number && !city && !area && !details_address && !total){
             return res.send({message : "please fill up all the fields"})
         }
 
         //place an order 
-        const order = await new Order({cart,name,number,alternative_number,city,area,details_address}).save();
+        const order = await new Order({cart,quantity,name,number,alternative_number,city,area,details_address,total}).save();
            
         res.status(201).send({
             success:true,

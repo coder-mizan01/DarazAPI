@@ -4,7 +4,7 @@ import {placeOrderController,getAllOrderController,getSingleOrderByNumber} from 
 
 const router = express.Router();
 
-router.post('/order', placeOrderController);
+router.post('/create-order', placeOrderController);
 router.get('/all-order',getAllOrderController);
 router.get('/single-order/:number',getSingleOrderByNumber)
 
