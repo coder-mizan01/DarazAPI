@@ -6,12 +6,12 @@ const orderSchema = new mongoose.Schema({
       type : Object,
       required : true,
    },
-   quantity :{
-     type : String,
-   },
    name : {
      type : String,
      required : true,
+   },
+   email : {
+    type : String,
    },
    number:{
     type : String,
@@ -31,10 +31,6 @@ const orderSchema = new mongoose.Schema({
    details_address : {
     type : String,
     required : true,
-   },
-   total : {
-      type : String,
-      required : true
    },
 
 },{timestamps:true}) 
