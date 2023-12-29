@@ -32,6 +32,9 @@ const orderSchema = new mongoose.Schema({
     type : String,
     required : true,
    },
+   delivery_chrage : {
+      type : String
+   },
 
 },{timestamps:true}) 
 
